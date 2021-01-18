@@ -3,8 +3,8 @@
 ### Work in progress
 
 - [x] Bilibili subtitle format (.json)
-- [ ] Convert Bilibili subtitle format to srt
-- [ ] Video 360p, 480p coming soon
+- [x] Convert Bilibili subtitle format (.json) to (.srt)
+- [ ] Video 360p, 480p, 720p? coming soon
 - [ ] Audio coming soon
 
 ### Install Deno
