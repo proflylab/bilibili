@@ -1,0 +1,12 @@
+{
+  "$schema": "https://deno.land/x/denon@2.4.6/schema.json",
+  "scripts": {
+    "dev": {
+      "cmd": "deno run ./src/app.ts",
+      "env": {
+        "PORT": "8080"
+      },
+      "unstable": true
+    }
+  }
+}

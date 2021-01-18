@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "coenraads.bracket-pair-colorizer",
+    "editorconfig.editorconfig",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+    "wix.vscode-import-cost",
+    "sirtori.indenticator",
+    "xabikos.javascriptsnippets",
+    "shardulm94.trailing-spaces",
+    "visualstudioexptteam.vscodeintellicode",
+    "pkief.material-icon-theme",
+    "equinusocio.vsc-material-theme",
+    "denoland.vscode-deno",
+    "richie5um2.vscode-sort-json"
+  ],
+  "unwantedRecommendations": []
+}
