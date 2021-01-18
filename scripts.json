@@ -6,7 +6,8 @@
       "env": {
         "PORT": "8080"
       },
-      "unstable": true
+      "unstable": true,
+      "allow": ["write"]
     }
   }
 }

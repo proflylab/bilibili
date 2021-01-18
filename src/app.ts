@@ -1,4 +1,5 @@
-import { cac } from "../deps.ts";
+import { cac, path } from "../deps.ts";
+import { bbJsonToSrt } from "./utils/index.ts";
 
 const cli = cac("bilibili");
 
@@ -23,19 +24,21 @@ cli
 
 cli
   .command("get <epId>", "Get subtitle")
-  .option("-l, --lang [lang]", "Set language", { default: "th" })
   .action(async (epId, options) => {
-    const { lang } = options;
     const res = await fetch(
       `https://api.global.bilibili.com/intl/gateway/m/subtitle?ep_id=${epId}`,
     );
     const { data: { subtitles } } = await res.json();
 
     // deno-lint-ignore no-explicit-any
-    const subtitleUrl = subtitles.find((item: { key: any }) =>
-      item.key === lang
-    ).url;
-    console.log(`[subtitle] ${subtitleUrl}`);
+    subtitles.map(async (item: any) => {
+      const { key, url } = item;
+      const dest = `[${key}] ${path.basename(url).replace(".json", ".srt")}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      bbJsonToSrt(dest, data);
+      console.log(dest);
+    });
   });
 
 cli
@@ -54,13 +57,11 @@ cli
       const { data: { list } } = await res.json();
 
       // deno-lint-ignore no-explicit-any
-      list.map((item: { season_id: any; title: any }) =>
-        console.log(`[${item.season_id}] ${item.title}`)
-      );
+      list.map((item: any) => console.log(`[${item.season_id}] ${item.title}`));
     }
   });
 cli.help();
 
-cli.version("0.0.1");
+cli.version("0.0.2");
 
 cli.parse();
