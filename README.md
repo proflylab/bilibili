@@ -55,7 +55,7 @@ Usage:
 Commands:
   info <sId>  View info
   get <epId>  Get subtitle
-  list [...]  Lists of anime
+  list        Lists of anime
 
 For more info, run any command with the `--help` flag:
   $ bilibili info --help
