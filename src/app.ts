@@ -33,7 +33,7 @@ cli
     // deno-lint-ignore no-explicit-any
     subtitles.map(async (item: any) => {
       const { key, url } = item;
-      const dest = `[${key}] ${path.basename(url).replace(".json", ".srt")}`;
+      const dest = `[${key}] ${path.basename(url).split("?")[0].replace(".json", ".srt")}`;
       const res = await fetch(url);
       const data = await res.json();
       bbJsonToSrt(dest, data);
